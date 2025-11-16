@@ -14,13 +14,13 @@ The focus is on:
 
 **Overview of Results:**
 
-Original Video (**En**): [data/examples/Tanzania_subtitled.mp4](data/examples/Tanzania_subtitled.mp4)
+Original Video (**En**): [subtitle integrated](https://drive.google.com/file/d/1pEm0421WHjV7n-P1MSVGlTXYVevzFc6J/view?usp=sharing)
 
 <video width="640" height="360" controls>
   <source src="data/examples/Tanzania_subtitled.mp4" type="video/mp4">
 </video>
 
-After translation (**DE**): [data/examples/Tanzania_de_lipsynced_trim_subtitled.mp4](data/examples/Tanzania_de_lipsynced_trim_subtitled.mp4)
+After translation (**DE**): [subtitle integrated](https://drive.google.com/file/d/1teA09sDjJtKGW9DAEGAPWxngMqHE2PF8/view?usp=sharing)
 
 <video width="640" height="360" controls>
   <source src="data/examples/Tanzania_de_lipsynced_trim_subtitled.mp4" type="video/mp4">
@@ -158,7 +158,7 @@ Each line represents one subtitle segment:
 
 ---
 
-### 4.2 (Optional) Voice Cloning with ElevenLabs
+### 4.2 (Optional) Voice Cloning with [ElevenLabs](https://elevenlabs.io/docs/cookbooks/voices/instant-voice-cloning)
 
 **Goal:** approximate the original speaker’s identity by cloning their voice, then use that voice for German TTS.
 
@@ -202,7 +202,7 @@ If you **don’t have access to paid cloning**, you can skip this step and just 
 
 ---
 
-### 4.3 TTS for Each German Sentence (ElevenLabs)
+### 4.3 TTS for Each German Sentence ([ElevenLabs](https://elevenlabs.io/app/speech-synthesis/text-to-speech))
 
 Generate an audio file for each translated sentence:
 
@@ -290,7 +290,7 @@ Many players let you switch between tracks—useful for demos.
 
 ---
 
-### 4.6 (Optional) Lip Sync with Wav2Lip-style API (Sync `lipsync-2`)
+### 4.6 (Optional) Lip Sync with [Wav2Lip](https://github.com/Rudrabha/Wav2Lip)-style API (Sync `lipsync-2`)
 
 To further refine mouth movements, an optional step calls Sync’s `lipsync-2` model (a [Wav2Lip](https://github.com/Rudrabha/Wav2Lip)-style commercial API).
 
