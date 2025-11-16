@@ -1,0 +1,12 @@
+google-genai
+elevenlabs
+syncsdk
+python-dotenv
+srt
+numpy
+soundfile
+librosa
+pydub
+requests
+httpx
+pytest
