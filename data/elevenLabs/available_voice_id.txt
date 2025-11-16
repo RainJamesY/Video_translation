@@ -1,0 +1,12 @@
+[Index]  Name                             | Voice ID                          | Category      | Lang
+----------------------------------------------------------------------------------------------------
+[01] Rachel                           | 21m00Tcm4TlvDq8ikWAM             | premade      | 
+[02] Drew                             | 29vD33N1CtxCmqQRPOHJ             | premade      | 
+[03] Clyde                            | 2EiwWnXFnvU5JabPnv8n             | premade      | 
+[04] Paul                             | 5Q0t7uMcjvnagumLfvZi             | premade      | 
+[05] Aria                             | 9BWtsMINqrJLrRacOk9x             | premade      | 
+[06] Domi                             | AZnzlk1XvdvUeBnXmlld             | premade      | 
+[07] Dave                             | CYw3kZ02Hs0563khs1Fj             | premade      | 
+[08] Roger                            | CwhRBWXzGAHq8TQ4Fs17             | premade      | 
+[09] Fin                              | D38z5RcWu1voky8WS1ja             | premade      | 
+[10] Sarah                            | EXAVITQu4vr4xnSDxMaL             | premade      | 
