@@ -30,7 +30,7 @@ After translation (**DE**): [subtitle integrated](https://drive.google.com/file/
 
 ---
 
-## 1. Repository Structure
+## Repository Structure
 
 ```bash
 .
@@ -57,9 +57,9 @@ After translation (**DE**): [subtitle integrated](https://drive.google.com/file/
 
 ---
 
-## 2. Requirements & Setup
+## Requirements & Setup
 
-### 2.1 Environment
+### 1 Environment
 
 * Python 3.10+
 * `ffmpeg` / `ffprobe` installed and on `PATH`
@@ -83,7 +83,7 @@ Key Python deps (see `requirements.txt`):
 * `syncsdk` (for Wav2Lip commercial API via sync.so)
 * `ffmpeg-python` (optional helper, core ops still use CLI `ffmpeg`)
 
-### 2.2 API Keys (`.env`)
+### 2 API Keys (`.env`)
 
 Create a `.env` file in the repo root (never commit your real keys):
 
@@ -103,7 +103,7 @@ All scripts use `python-dotenv` to load these values automatically.
 
 ---
 
-## 3. End-to-End Pipeline Overview
+## End-to-End Pipeline Overview
 
 ### High-level steps
 
@@ -118,7 +118,7 @@ All steps are **offline and modular**: you can run them one by one and inspect i
 
 ---
 
-## 4. Step-by-Step Usage
+## Step-by-Step Usage
 
 Example paths below are based on the current repo layout.
 Assume:
@@ -126,7 +126,7 @@ Assume:
 * Input video: `data/input/Tanzania-2.mp4`
 * Original subtitles (SRT): `data/input/Tanzania-caption.srt`
 
-### 4.1 Subtitle Translation (Gemini API)
+### 1. Subtitle Translation (Gemini API)
 
 Translate the English SRT into German and save a JSONL file with aligned segments:
 
@@ -158,11 +158,11 @@ Each line represents one subtitle segment:
 
 ---
 
-### 4.2 (Optional) Voice Cloning with [ElevenLabs](https://elevenlabs.io/docs/cookbooks/voices/instant-voice-cloning)
+### 2 (Optional) Voice Cloning with [ElevenLabs](https://elevenlabs.io/docs/cookbooks/voices/instant-voice-cloning)
 
 **Goal:** approximate the original speaker’s identity by cloning their voice, then use that voice for German TTS.
 
-#### 4.2.1 Extract speaker reference audio
+#### 2.1 Extract speaker reference audio
 
 Select a few clean segments from the original video using subtitle timestamps and save a single reference WAV:
 
@@ -182,7 +182,7 @@ data/output/audio/speaker_ref/speaker_ref.wav
 data/output/audio/speaker_ref/Tanzania-2_en.wav   # extracted full original audio (for later alignment)
 ```
 
-#### 4.2.2 Call ElevenLabs to clone voice
+#### 2.2 Call ElevenLabs to clone voice
 
 > Requires an ElevenLabs plan that supports voice cloning. https://elevenlabs.io/docs/cookbooks/voices/instant-voice-cloning
 
@@ -202,7 +202,7 @@ If you **don’t have access to paid cloning**, you can skip this step and just 
 
 ---
 
-### 4.3 TTS for Each German Sentence ([ElevenLabs](https://elevenlabs.io/app/speech-synthesis/text-to-speech))
+### 3. TTS for Each German Sentence ([ElevenLabs](https://elevenlabs.io/app/speech-synthesis/text-to-speech))
 
 Generate an audio file for each translated sentence:
 
@@ -226,7 +226,7 @@ data/output/audio/de_segments/seg_0002.mp3
 
 ---
 
-### 4.4 Align & Concatenate Audio Segments
+### 4. Align & Concatenate Audio Segments
 
 Now we align all German segments to the original subtitle timings and create a single continuous German track.
 
@@ -257,7 +257,7 @@ data/output/audio/de_aligned/Tanzania_de_aligned.wav
 
 ---
 
-### 4.5 Replace Audio in the Original Video
+### 5. Replace Audio in the Original Video
 
 Replace the English audio with the aligned German track:
 
@@ -290,7 +290,7 @@ Many players let you switch between tracks—useful for demos.
 
 ---
 
-### 4.6 (Optional) Lip Sync with [Wav2Lip](https://github.com/Rudrabha/Wav2Lip)-style API (Sync `lipsync-2`)
+### 6. (Optional) Lip Sync with [Wav2Lip](https://github.com/Rudrabha/Wav2Lip)-style API (Sync `lipsync-2`)
 
 To further refine mouth movements, an optional step calls Sync’s `lipsync-2` model (a [Wav2Lip](https://github.com/Rudrabha/Wav2Lip)-style commercial API).
 
@@ -300,7 +300,7 @@ To further refine mouth movements, an optional step calls Sync’s `lipsync-2` m
 * Duration must be **< 60 seconds**.
 * Free generations are watermarked.
 
-#### 4.6.1 Ensure < 60 s (optional trimming)
+#### 6.1 Ensure < 60 s (optional trimming)
 
 For the free plan, I trim ~1 second from the end of both audio & video:
 
@@ -323,7 +323,7 @@ https://raw.githubusercontent.com/RainJamesY/Video_translation/main/data/output/
 https://raw.githubusercontent.com/RainJamesY/Video_translation/main/data/output/audio/de_aligned/Tanzania_de_aligned_trim.wav
 ```
 
-#### 4.6.2 Call lipsync API
+#### 6.2 Call lipsync API
 
 ```bash
 python -m code.lip_sync.run_lipsync_sync_api \
@@ -343,14 +343,14 @@ The script:
 
 ---
 
-## 5. Example Inputs & Outputs
+## Example Inputs & Outputs
 
 ### Example Input Files
 
 * `data/input/Tanzania-2.mp4`
   Original video with English audio.
 * `data/input/Tanzania-caption.srt`
-  Original English subtitles (converted from the provided `.txt` caption).
+  Original English subtitles
 
 ### Example Intermediate Outputs
 
@@ -374,7 +374,7 @@ The script:
 
 ---
 
-## 6. Assumptions & Limitations
+## Assumptions & Limitations
 
 ### Assumptions
 
@@ -421,7 +421,7 @@ The script:
 
 ---
 
-## 7. Design Choices & Alternatives
+## Design Choices & Alternatives
 
 ### Why APIs for the MVP?
 
@@ -455,7 +455,7 @@ The overall pipeline structure would remain identical; only the translation/TTS/
 
 ---
 
-## 8. How to Run a Minimal Demo
+## Minimal Demo Quick Run
 
 If you just want to verify that the core pipeline works (without cloning & lip sync):
 
