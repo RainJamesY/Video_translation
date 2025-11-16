@@ -107,7 +107,9 @@ All scripts use `python-dotenv` to load these values automatically.
 
 ### High-level steps
 
-1. **Translate subtitles** (English → German) using Gemini.
+![image-20251116011344546](https://rainjamesy-image-host.oss-cn-beijing.aliyuncs.com/img/image-20251116011344546.png)
+
+1. **Translate subtitles** (English → German) using Gemini API.
 2. **(Optional) Voice cloning**: extract speaker reference audio and create a cloned voice on ElevenLabs.
 3. **Generate German TTS** for each subtitle segment via ElevenLabs (using a chosen or cloned voice).
 4. **Align & concatenate** all TTS segments into one continuous German audio track, aligned to original subtitle timings.
