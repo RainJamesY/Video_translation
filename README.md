@@ -14,13 +14,13 @@ The focus is on:
 
 **Overview of Results:**
 
-Original Video (**En**):
+Original Video (**En**): [data/examples/Tanzania_subtitled.mp4](data/examples/Tanzania_subtitled.mp4)
 
 <video width="640" height="360" controls>
   <source src="data/examples/Tanzania_subtitled.mp4" type="video/mp4">
 </video>
 
-After translation (**DE**):
+After translation (**DE**): [data/examples/Tanzania_de_lipsynced_trim_subtitled.mp4](data/examples/Tanzania_de_lipsynced_trim_subtitled.mp4)
 
 <video width="640" height="360" controls>
   <source src="data/examples/Tanzania_de_lipsynced_trim_subtitled.mp4" type="video/mp4">
