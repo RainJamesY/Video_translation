@@ -374,6 +374,18 @@ The script:
 * `Tanzania_de_lipsynced_trim` (downloaded from Sync output URL)
   Lipsynced video produced by `lipsync-2` (watermarked, <60s).
 
+
+
+### Cost Estimation
+
+Video/voice duration: 60s
+
+- TTS via ElevenLabs: 1097/10,000 free credits
+
+- LipSync via Wav2Lip: 2.99 usd 
+
+
+
 ---
 
 ## Assumptions & Limitations
@@ -388,7 +400,6 @@ The script:
 ### Limitations
 
 1. **Voice cloning**
-
    * High-quality cloning in ElevenLabs requires a paid plan; the repo includes code paths for cloning, but the default flow can use a non-custom voice.
    * If cloning is unavailable, the German voice will not match the original speaker’s identity.
 2. **TTS & prosody**
